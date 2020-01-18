@@ -1,8 +1,8 @@
 from flask import Flask, render_template
-from st.data import title, subtitle, description, departures, tours
+from data import title, subtitle, description, departures, tours
 
 
-app = Flask('__main__')
+app = Flask('st')
 
 @app.route('/')
 def index():

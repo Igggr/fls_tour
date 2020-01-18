@@ -11,5 +11,5 @@
 
     <p class="my-4 w-75" data-test="description">{{ tour.description }}</p>
 
-    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">{{ tour.price }}</span></a>
+    <a href="/order/{{id}}/" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">{{ tour.price }}</span></a>
 {% endblock %}

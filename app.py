@@ -14,8 +14,11 @@ def from_direction(direction):
 
 @app.route('/tours/<int:id>/')
 def tour_page(id):
-    return render_template('tour.html', tour=tours[id], departures=departures)
+    return render_template('tour.html', tour=tours[id], id=id, departures=departures)
 
+@app.route("/order/<int:id>/")
+def order(id):
+    return f"<h1>page for buying tour {id} is under development</h1>"
 
 app.run(debug=True)
 

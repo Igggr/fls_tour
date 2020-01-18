@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from st.data import title, subtitle, description, departures, tours
 
 
-app = Flask('fla')
+app = Flask('__main__')
 
 @app.route('/')
 def index():
@@ -20,5 +20,6 @@ def tour_page(id):
 def order(id):
     return f"<h1>page for buying tour {id} is under development</h1>"
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
 

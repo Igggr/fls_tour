@@ -10,7 +10,7 @@
 
             {% block nav %}
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" data-test="logo" href="/">Stepik Travel</a>
+              <a class="navbar-brand {{ 'active' if request.path == '/' else '' }}" data-test="logo" href="/">Stepik Travel</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -18,8 +18,14 @@
                 <ul class="navbar-nav" data-test="navigation">
 
                     {% for abbreviation in departures %}
+                        {% set link = "/from/" + abbreviation + "/" %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/from/{{ abbreviation }}/" data-test="navlink">{{ departures[abbreviation] }} </a>
+                            {% if request.path == link %}
+                               {% set c = "active" %}
+                            {% else %}
+                               {%set c = "" %}
+                            {% endif %}
+                            <a class="nav-link {{ c }}" href="/from/{{ abbreviation }}/" data-test="navlink">{{ departures[abbreviation] }} </a>
                         </li>
                     {% endfor %}
                 </ul>

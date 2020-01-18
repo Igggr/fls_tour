@@ -2,34 +2,17 @@
 
 {% block body %}
     <h1 class="display-5 mt-4">Летим <span data-test="from">{{ departures[direction] }}  </span></h1>
-   {% set matching_tours = tours %}
+   {% set tours = tours %}
+
     <p class="mb-4" >Найдено <span data-test="tourcount">{{ matching_tours | length }}</span> туров,
-        от <span data-test="pricemin">{{ (matching_tours.values() | min(attribute="price")).price }}</span>
-        до <span data-test="pricemax">{{ matching_tours.values() | max(attribute="price") | attr('price') }}</span>
-        и от <span data-test="nightsmax">{{ matching_tours.values() | min(attribute="nights") | attr("nights") }}</span> ночей
+        от <span data-test="pricemin">{{ (tours.values() | min(attribute="price")).price }}</span>
+        до <span data-test="pricemax">{{ tours.values() | max(attribute="price") | attr('price') }}</span>
+        и от <span data-test="nightsmax">{{ tours.values() | min(attribute="nights") | attr("nights") }}</span> ночей
         до <span data-test="nightsmax">15</span> ночей</p>
     <!-- HERO -->
 
     <!-- CARDS -->
 
-      <div class="row mt-5" data-test="cards">
-          {% for id, tour in matching_tours.items() %}
-               <div class="col-4 card-deck" data-test="card">
-                   <div class="card mb-3" >
-                       <img src="{{ tour.picture }}" class="card-img-top img-fluid" data-test="picture">
-                       <div class="card-body">
-                           <h5 class="card-title">{{ tour.title }}</h5>
-                           <p class="card-text">{{ tour.description | truncate(75) }}</p>
-                           <a href="/tours/{{ id }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
-                       </div>
-                       <div class="card-footer">
-                           <span style="display:inline-block"> {{ tour.date }},</span>
-                           <span style="display:inline-block"> {{ tour.nights }} дней,</span>
-                           <span style="display:inline-block">  {{ tour.price }} Р</span>
-                           <span style="display:inline-block">{{ tour.stars }} ★</span></div>
-                   </div>
-                </div>
-          {% endfor %}
-    </div>
+     {% include "card_deck.html" %}
 
 {% endblock %}

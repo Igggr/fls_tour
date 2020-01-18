@@ -6,7 +6,7 @@ app = Flask('fla')
 
 @app.route('/')
 def index():
-    return render_template('index.html', tours=tours, title=title, subtitle=subtitle, description=description)
+    return render_template('index.html', tours=tours, title=title, subtitle=subtitle, description=description, departures=departures)
 
 @app.route('/from/<direction>/')
 def from_direction(direction):

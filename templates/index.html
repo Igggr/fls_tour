@@ -13,7 +13,7 @@
     <!-- CARDS -->
 
     <div class="row mt-5" data-test="cards">
-        {% for id, tour in tours.items() %}
+        {% for id, tour in tours.items() | batch(6) |  first %}
         <div class="col-4 card-deck" data-test="card">
             <div class="card mb-3" >
                 <img src="{{ tour.picture }}" class="card-img-top img-fluid" data-test="picture">

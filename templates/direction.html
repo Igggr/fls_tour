@@ -2,17 +2,16 @@
 
 {% block body %}
     <h1 class="display-5 mt-4">Летим <span data-test="from">{{ departures[direction] }}  </span></h1>
-   {% set tours = tours %}
+   {% set tours = tours | from_direction( direction ) %}
 
-    <p class="mb-4" >Найдено <span data-test="tourcount">{{ matching_tours | length }}</span> туров,
+    <p class="mb-4" >Найдено <span data-test="tourcount">{{ tours | length }}</span> туров,
         от <span data-test="pricemin">{{ (tours.values() | min(attribute="price")).price }}</span>
-        до <span data-test="pricemax">{{ tours.values() | max(attribute="price") | attr('price') }}</span>
-        и от <span data-test="nightsmax">{{ tours.values() | min(attribute="nights") | attr("nights") }}</span> ночей
-        до <span data-test="nightsmax">15</span> ночей</p>
+        до <span data-test="pricemax">{{ (tours.values() | max(attribute="price")) | attr("price") }}</span>
+        и от <span data-test="nightsmax">{{ (tours.values() | min(attribute="nights")).nights }}</span> ночей
+        до <span data-test="nightsmax">{{ (tours.values() | min(attribute="nights") | attr("nights")) }}</span> ночей</p>
     <!-- HERO -->
 
     <!-- CARDS -->
-
      {% include "card_deck.html" %}
 
 {% endblock %}

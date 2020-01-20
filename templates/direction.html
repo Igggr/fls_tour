@@ -2,7 +2,7 @@
 
 {% block body %}
     <h1 class="display-5 mt-4">Летим <span data-test="from">{{ departures[direction] }}  </span></h1>
-   {% set tours = tours | from_direction( direction ) %}
+   {% set tours = tours | direction_filter( direction ) %}
 
     <p class="mb-4" >Найдено <span data-test="tourcount">{{ tours | length }}</span> туров,
         от <span data-test="pricemin">{{ (tours.values() | min(attribute="price")).price }}</span>

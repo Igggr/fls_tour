@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect
 from data import title, subtitle, description, departures, tours
 
 
-app = Flask('st')
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -46,4 +46,4 @@ def best_nth(tours, by="stars", n=6):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

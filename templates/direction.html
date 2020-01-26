@@ -9,7 +9,7 @@
         от <span data-test="pricemin">{{ (tours.values() | min(attribute="price")).price }}</span>   {# tours.values() | min(attribute="price") | attr("price") - не работает git add direction.html#}
         до <span data-test="pricemax">{{ (tours.values() | max(attribute="price")).price }}</span>
         и от <span data-test="nightsmax">{{ (tours.values() | min(attribute="nights")).nights }}</span> ночей
-        до <span data-test="nightsmax">{{ (tours.values() | min(attribute="nights")).nights }}</span> ночей</p>
+        до <span data-test="nightsmax">{{ (tours.values() | max(attribute="nights")).nights }}</span> ночей</p>
     <!-- HERO -->
 
     <!-- CARDS -->

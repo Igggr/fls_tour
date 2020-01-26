@@ -36,5 +36,12 @@ def direction_filter(tours, direction):
     return dict(tours_from_direction)
 
 
+@app.template_filter("best_nth")
+def best_nth(tours, by="stars", n=6):
+    tours = list(tours.items())
+    tours.sort(key=lambda tour: tour[1][by], reverse=True)
+    return dict(tours[:n])
+
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

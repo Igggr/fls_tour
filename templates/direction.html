@@ -13,6 +13,6 @@
     <!-- HERO -->
 
     <!-- CARDS -->
-     {{ cards.deck(tours) }}
+     {{ cards.deck(tours | best_nth) }}
 
 {% endblock %}

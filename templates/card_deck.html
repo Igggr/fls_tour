@@ -1,19 +1,20 @@
 {% macro deck(tours) -%}
 <div class="row mt-5" data-test="cards">
-          {% for id, tour in tours.items() | batch(6) | first %}
+          {% for id, tour in tours.items() %}
                <div class="col-6 col-lg-4 card-deck" data-test="card">
                    <div class="card mb-3" >
                        <img src="{{ tour.picture }}" class="card-img-top img-fluid" data-test="picture">
                        <div class="card-body">
                            <h5 class="card-title">{{ tour.title }}</h5>
-                           <p class="card-text">{{ tour.description | truncate(75) }}</p>
+                           <p class="card-text">{{ tour.description | truncate(100) }}</p>
                            <a href="/tours/{{ id }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
                        </div>
                        <div class="card-footer">
                            <span style="display:inline-block"> {{ tour.date }},</span>
                            <span style="display:inline-block"> {{ tour.nights }} дней,</span>
                            <span style="display:inline-block">  {{ tour.price }} Р</span>
-                           <span style="display:inline-block">{{ tour.stars }} ★</span></div>
+                           <div style="display: inline-block; float:right;">{{ tour.stars }} ★</div>
+                       </div>
                    </div>
                 </div>
           {% endfor %}

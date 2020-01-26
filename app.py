@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from data import title, subtitle, description, departures, tours
 
 
@@ -26,7 +26,9 @@ def tour_page(id):
 
 @app.route("/order/<int:id>/")
 def order(id):
-    return f"<h1>page for buying tour {id} is under development</h1>"
+    return redirect(
+      "https://docs.google.com/forms/d/e/1FAIpQLSctON392nRzdj9bQS7QpsddOpjpUBvLRkq1F9dTLRtLsYHJ2A/viewform?usp=sf_link"
+    )
 
 
 @app.template_filter("direction_filter")

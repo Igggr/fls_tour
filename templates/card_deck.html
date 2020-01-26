@@ -1,6 +1,7 @@
- <div class="row mt-5" data-test="cards">
+{% macro deck(tours) -%}
+<div class="row mt-5" data-test="cards">
           {% for id, tour in tours.items() | batch(6) | first %}
-               <div class="col-4 card-deck" data-test="card">
+               <div class="col-6 col-lg-4 card-deck" data-test="card">
                    <div class="card mb-3" >
                        <img src="{{ tour.picture }}" class="card-img-top img-fluid" data-test="picture">
                        <div class="card-body">
@@ -17,3 +18,4 @@
                 </div>
           {% endfor %}
  </div>
+{%- endmacro %}

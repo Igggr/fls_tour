@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'card_deck.html' as cards %}
 
 {% block body %}
     <h1 class="display-5 mt-4">Летим <span data-test="from">{{ departures[direction] }}  </span></h1>
@@ -12,6 +13,6 @@
     <!-- HERO -->
 
     <!-- CARDS -->
-     {% include "card_deck.html" %}
+     {{ cards.deck(tours) }}
 
 {% endblock %}

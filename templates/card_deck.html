@@ -2,18 +2,22 @@
 <div class="row mt-5" data-test="cards">
           {% for id, tour in tours.items() %}
                <div class="col-6 col-lg-4 card-group" data-test="card">
-                   <div class="card mb-3" >
-                       <div><img src="{{ tour.picture }}" class="card-img-top img-fluid" data-test="picture"></div>
+                   <div class="card mb-3">
+                       <div class="div-img"><img src="{{ tour.picture }}" data-test="picture"/></div>
                        <div class="card-body">
+                           <div class="card-content">
                            <h5 class="card-title">{{ tour.title }}</h5>
                            <p class="card-text">{{ tour.description | truncate(100) }}</p>
+                           </div>
+                           <div class="card-button">
                            <a href="/tours/{{ id }}" class="btn btn-sm btn-primary" style="" data-test="tourlink">Подробнее</a>
+                           </div>
                        </div>
                        <div class="card-footer">
                            <span style="display:inline-block"> {{ tour.date }},</span>
                            <span style="display:inline-block"> {{ tour.nights }} дней,</span>
                            <span style="display:inline-block">  {{ tour.price }} Р</span>
-                           <div style="display: inline-block; float:right;">{{ tour.stars }} ★</div>
+                           <div style="display: inline-block; float:  right">{{ tour.stars }} ★</div>
                        </div>
                    </div>
                 </div>

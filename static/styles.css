@@ -3,3 +3,41 @@
   background-position: center;
   background-size: cover
 }
+
+/*
+kostil, because bootsrap card doesn't align card-images to equal heihgt -
+but only total height of card.
+Styles bellow align elements
+*/
+
+.card {
+  display: grid;
+  grid-template-rows: 45% 45% 10%;
+}
+
+.div-img {
+   grid-row-start: 1;
+}
+
+.div-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-body {
+  grid-row-start: 2;
+  display: grid;
+  grid-template-rows: 80% 20%;
+}
+
+.card-footer {
+    grid-row-start: 3;
+}
+
+.card-content {
+  grid-row-start: 1;
+}
+
+.card-button {
+  grid-row-start: 2;
+}
